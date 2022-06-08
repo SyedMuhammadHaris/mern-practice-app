@@ -3,6 +3,7 @@ const dotenv = require('dotenv').config();
 const port = process.env.PORT || 8000;
 const app = express();
 const goalsRoute = require('./routes/goalRoutes');
+const usersRoute = require('./routes/userRoutes');
 const { errorHandler}  = require('./middlewares/errorMiddleware');
 const connectDb = require('./config/db')
 
@@ -12,6 +13,7 @@ app.use(express.urlencoded({extended:false}));
 
 
 app.use('/api/goals',goalsRoute);
+app.use('/api/user',usersRoute);
 
 app.use(errorHandler);
 
